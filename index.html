@@ -4,168 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <title>The Stairs</title>
-    <style>
-        body {
-            margin: 0;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #000;
-            color: #fff;
-            font-family: "Segoe UI", Helvetica, Arial, sans-serif;
-            font-size: 2rem;
-            text-align: center;
-            padding: 1rem;
-
-            opacity: 0;
-            transition: opacity 6s ease;
-        }
-
-        .echo {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: rgba(255, 255, 255, 0.05);
-            font-size: 2.2rem;
-            pointer-events: none;
-            user-select: none;
-        }
-
-        #footer {
-            opacity: 0;
-            transition: opacity 2s ease;
-            position: fixed;
-            bottom: 10px;
-            left: 10px;
-            font-size: 0.7rem;
-            color: rgba(255, 255, 255, 0.4);
-        }
-
-        .ghost-text {
-            position: absolute;
-            color: white;
-            opacity: 0;
-            font-size: 1.2rem;
-            pointer-events: none;
-            user-select: none;
-            transition: opacity 2s ease;
-            transform: translate(-50%, -50%);
-        }
-
-        #ghost-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            overflow: hidden;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
+    <style id="dynamic-styles"></style>
 </head>
 
 <body>
+    <div id="invert-flash"></div>
     <div id="ghost-container"></div>
-
     <div class="echo">You should come up here. It's your time...</div>
-    The stairs call for you, but it's not your time...
+    <div class="main-text">The stairs call for you, but it's not your time...</div>
+    <div id="system-alert">UNAUTHORIZED OBSERVER DETECTED: TRACKING...</div>
+    <div id="tracking-map"></div>
     <div id="footer">Office of Architectural Continuity</div>
-    <style id="dynamic-styles"></style>
-    <script>
-        // Fade-in
-        window.onload = () => document.body.style.opacity = 1;
-
-        // Occasional flicker
-        setInterval(() => {
-            document.body.style.opacity = 0.97;
-            setTimeout(() => document.body.style.opacity = 1, 150);
-        }, 28000);
-
-        // Delayed footer reveal
-        setTimeout(() => {
-            document.getElementById('footer').style.opacity = 1;
-        }, 10000);
-
-        const ghostPhrases = [
-            "I miss you",
-            "come join me",
-            "why are you scared",
-            "you look so sad these days",
-            "you can be so happy here",
-            "did I say something wrong",
-            "everyone hates you there",
-            "she's gone but it's not your fault",
-            "you used to love this game",
-            "just relax and listen to me",
-            "he's not disappointed anymore",
-            "it's been so cold without you",
-            "no one will interrupt us this time",
-            "you always relax when you're close",
-            "you don't need to hide from me",
-            "you've been avoiding me again",
-            "you belong up here",
-            "you were always going to come back",
-            "it's time now",
-            "isn't this what you wanted",
-            "you're so close now",
-            "maybe this time it will matter"
-        ];
-        function spawnGhostText() {
-            const ghost = document.createElement('div');
-            ghost.className = 'ghost-text';
-
-            // Random phrase
-            ghost.textContent = ghostPhrases[Math.floor(Math.random() * ghostPhrases.length)];
-
-            // Random size
-            ghost.style.fontSize = (1 + Math.random() * 0.8) + "rem";
-
-            // Random rotation
-            const rotation = (Math.random() - 0.5) * 4;
-
-            // Random position
-            ghost.style.top = Math.random() * 80 + "%";
-            ghost.style.left = Math.random() * 80 + "%";
-
-            document.getElementById('ghost-container').appendChild(ghost);
-
-            // Random drift offsets
-            const driftX = (Math.random() - 0.5) * 60;
-            const driftY = (Math.random() - 0.5) * 60;
-
-
-            // Create unique keyframes for this ghost
-            const driftName = "drift_" + Math.random().toString(36).substring(2, 9);
-            const styleSheet = document.getElementById("dynamic-styles").sheet;
-            styleSheet.insertRule(`
-                @keyframes ${driftName} {
-                    from { transform: translate(-50%, -50%) rotate(${rotation}deg); }
-                    to   { transform: translate(calc(-50% + ${driftX}px), calc(-50% + ${driftY}px)) rotate(${rotation}deg); }
-                }`, styleSheet.cssRules.length);
-
-            // Apply animation
-            ghost.style.animation = `${driftName} 4s ease-in-out forwards`;
-
-            // Fade in with random opacity
-            setTimeout(() => ghost.style.opacity = 0.10 + Math.random() * 0.05, 50);
-
-            // Fade out and remove
-            setTimeout(() => {
-                ghost.style.opacity = 0;
-                setTimeout(() => ghost.remove(), 2000);
-            }, 4000);
-
-            // Schedule next ghost
-            const nextDelay = 1000 + Math.random() * 3000;
-            setTimeout(spawnGhostText, nextDelay);
-        }
-
-        // Start after initial load
-        setTimeout(spawnGhostText, 5000);
-
-    </script>
+    <script src="script.js"></script>
 </body>
 
 </html>
