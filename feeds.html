@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Office of Architectural Continuity</title>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            background-color: #e5e5e5;
+            font-family: "Times New Roman", serif;
+            color: #000000;
+        }
+        .container {
+            width: 760px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border: 1px solid #999999;
+            padding: 10px;
+        }
+        .nav {
+            background-color: #cccccc;
+            padding: 5px;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        .nav a {
+            margin-right: 15px;
+            text-decoration: none;
+            color: #0000aa;
+        }
+        .notice-box {
+            border: 1px solid #666666;
+            padding: 8px;
+            background-color: #f7f7f7;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        .footer {
+            font-size: 12px;
+            color: #555555;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .flicker {
+            color: #aa0000;
+            font-weight: bold;
+            animation: flicker 1.2s linear infinite;
+        }
+        @keyframes flicker {
+            0% { opacity: 0; }
+            10% { opacity: 1; }
+            20% { opacity: 0; }
+            30% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <!-- Broken Logo -->
+        <center>
+            <img src="oac_logo.gif" alt="OAC" width="300" height="200">
+            <h2>Office of Architectural Continuity</h2>
+            <i>Preserving Spatial Compliance Since 1974</i>
+        </center>
+
+        <hr>
+
+        <!-- Navigation Bar -->
+        <div class="nav">
+            <img src="icon_home.gif" width="120" height="120">
+            <a href="oac.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="staff.html">Staff Directory</a>
+            <a href="feeds.html">Live Feeds</a>
+            <a href="reports.html">Reports</a>
+            <a href="login.html">Login</a>
+            <a href="careers.html">Careers</a>
+            <a href="contact.html">Contact</a>
+        </div>
+
+        <!-- Building Status Table -->
+        <h4>Building Status Overview</h4>
+        <table border="1" cellpadding="4" cellspacing="0" width="100%">
+            <tr>
+                <th>Building</th>
+                <th>Feed</th>
+                <th>Status</th>
+                <th>Notes</th>
+            </tr>
+            <tr>
+                <td>Building 2</td>
+                <td><img src="" width="300" height="200"></td>
+                <td><b>Stable</b></td>
+                <td>No anomalies detected</td>
+            </tr>
+            <tr>
+                <td>Building 3</td>
+                <td><img src="" width="300" height="200"></td>
+                <td><b>Reviewing</b></td>
+                <td>Report pending</td>
+            </tr>
+            <tr>
+                <td>Building 8</td>
+                <td><img src="" width="300" height="200"></td>
+                <td><b>Unavailable</b></td>
+                <td>Data corrupted</td>
+            </tr>
+            <tr>
+                <td>████████</td>
+                <td><img src="feed4.gif" width="300" height="200" style="border:1px solid #444"></td>
+                <td>—</td>
+                <td>—</td>
+            </tr>
+        </table>
+
+        <!-- Footer -->
+        <div class="footer">
+            Last updated: June 17, 2023<br>
+            For internal use only<br>
+            <span class="flicker">System Notice: Unauthorized access detected</span>
+        </div>
+
+    </div>
+</body>
+</html>
